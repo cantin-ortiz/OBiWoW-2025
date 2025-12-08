@@ -10,8 +10,9 @@ Nikolay Vazov, Torfinn Nome, Sabry Razick, Pubudu Saneth Samarakoon
    
 2. Before the start of the course it is recommended that all the participants :
    
-   -  Apply for the ec73 project in Educloud. Please follow the attached document : [Instructions to apply for the Galaxy project in Educloud](./GALAXY-FOX-portal-application.pdf). The user support will receive an e-mail with your application and will approve your membership to ec73. 
-       - <sub>_why do you need this?_ : The web platform Galaxy sends its calculations for execution to the High Performance Computing (HPC) cluster FOX. To optimize the performance and management, clusters require that all calculations (jobs) run in dedicated projects. All users must be members of a cluster project in order to be allowed to run cluster jobs. Galaxy on FOX uses project ec73 and this is the project all the users shall apply for.</sub>
+   -  Apply for the ec73 project in Educloud. Please follow the attached document : [Instructions to apply for the Galaxy project in Educloud](./GALAXY-FOX-portal-application.pdf). The user support will receive an e-mail with your application and will approve your membership to ec73.
+     
+        <sub>_why do you need this_ : The web platform Galaxy sends its calculations for execution to the High Performance Computing (HPC) cluster FOX. To optimize the performance and management, clusters require that all calculations (jobs) run in dedicated projects. All users must be members of a cluster project in order to be allowed to run cluster jobs. Galaxy on FOX uses project ec73 and this is the project all the users shall apply for.</sub>
        
    -  Set up two-factor authentication, often referred to as OTP (One Time Passcode). You can set this up using ID-porten and an authentication app on your mobile. Please refer to the following link for detailed instructions [Set up two-factor authentication](https://www.uio.no/english/services/it/research/platforms/edu-research/help/two-factor-authentication.html)
   
@@ -26,7 +27,70 @@ Nikolay Vazov, Torfinn Nome, Sabry Razick, Pubudu Saneth Samarakoon
      
      <img src="Galaxy-welcome-page.png" center raw=true />
 
-## Live Troubleshooting Session
+## Presentation
 
+Open the [Galaxy presentation](https://docs.google.com/presentation/d/1nmJh4OO_JMljCk96xLYti--sYX1xxGzd/edit?usp=sharing&ouid=109401063488907514927&rtpof=true&sd=true)
+
+## Hands-on Session - basics
+
+1. Download the [simple dataset to start](two-column-table.txt) to your laptop. 
+2. Log into Galaxy at (https://galaxy.educloud.no)
+3. See the three panels:
+      - Tools (entire set of tools you can use) - LEFT
+      - Menu of the selected tool (here you define how to run the tool) - CENTER
+      - History (your individual workspace) - RIGHT
+4. Create a new history in the history pannel. Click on the + sign in the right upper corner and change the name by clicking on the name. Let's call it *OBiWoW2025*
+5. Upload a dataset:
+      - Go to `Upload` in the `Tools` menu and click on `Upload`
+      - In the pop-up window, `Choose local file` and pick `two-column-table.txt` (the file which you have just downloaded at step 1)
+      - Select `Type : txt` instead of `Auto-detect` and click on `Start`.
+        
+   This will be your first dataset in Galaxy-FOX. Let's do something with it -:)
+7. SINGLE JOBS - 1 
+      - Select the tool group `Text Manipulation` and then the tool `Convert delimiters to TAB`
+      - Select the dataset `two-column-table.txt` from History, select `Commas` from the `Convert all` parameter, and run the job.
+      - Examine the result.
+8. SINGLE JOBS - 2
+      - Select the tool group `Text Manipulation` and then the tool `Line/Word/Character count of a dataset`.
+      - Select the dataset `Convert on data X` and run the job.
+      - Examine the result.
+9. WORKFLOW
+      - Create
+          - Select `Workflows` on the top menu and click on `+Create`
+          - Select the tool group `Inputs` and then the tool `Input dataset`
+          - Select the tool group `Text Manipulation` and then the tool `Convert delimiters to TAB`, with `Commas` selected from the `Convert all` parameter
+          - Select the tool group `Text Manipulation` and then the tool `Line/Word/Character count of a dataset`
+          - Click on the right upper corner pencil icon, give the workflow a name and save it by clicking on the disc icon
+      - Run
+          - Select `Workflows` on the top menu, choose a workflow and run it by clicking on the white arrow on blue background on the right
+      - Export
+          - Select `Workflows` on the top menu, choose a workflow and export it by clicking on the blue arrow in the right upper corner of the workflow box
+          - Before this you have to make the workflow accessible : Select `Workflows` on the top menu, choose a workflow and click on the `Share` icon in the line with workflow buttons.
+10. WORKFLOW
+      - Extract from steps 6 & 7
+      - Go to the three horisontal lines on the top of History and select `Extract workflow` in the dropdown
+      - Check `two-column-table.txt` from History Items (green fields) section
+      - Check `Include "Convert" in workflow` and `Include "Line/Word/Character count" in workflow` from Tools section
+      - Click on `Create Workflow` button on top
+11. DATA LIBRARIES
+      - Create : go to `Data` > `Data Libraries`
+      - Click on `+Libraries` and set Name/Description/Synopsis, then Save
+      - Add Folders and Datasets into folders
+      - Manage each folder or dataset by giving permissions over these entities to other users
+12. VISUALIZATION
+      - Select `Visualize` from the top menu
+      - Select Line chart (NVD3) and then `Convert on data X`
+      - Select Pie Chart (NVD3) and then `Convert on data X`
+   
+If you want to try it again using different examples, try this: [A short introduction to Galaxy](https://training.galaxyproject.org/training-material/topics/introduction/tutorials/galaxy-intro-short/tutorial.html)
+
+
+## Hands-on Session - Processing sequence dataset
+
+- Process sample dataset using tools available in Galaxy portal
+- [Processing sequence dataset: Mapping reads from FASTQ files](https://docs.google.com/presentation/d/1ZEHU4fZV6lFPlUVN4fZrna648AKUy2AEpmUoDfHDmjs/edit?usp=sharing)
+  - Test datasets: Available at Galaxy - Data Libraries (detailed in the presentation)
 
 ## Software Requirements
+
+- Tools are available in the [Galaxy instance at Educloud](https://galaxy.educloud.no)
